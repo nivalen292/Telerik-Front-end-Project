@@ -22,7 +22,10 @@ gulp.task('minify:js', ['compile:js'], () => {
     return pump([
         gulp.src('./tmp/scripts/*.js'),
         uglify(),
-        concat('all.js'), // trial
         gulp.dest('./dist/scripts')
     ]);
+});
+
+
+gulp.task('build', ['minify:css', 'minify:js'], () => {
 });

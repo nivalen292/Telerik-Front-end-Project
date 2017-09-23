@@ -1,3 +1,14 @@
+@font-face {
+    font-family: LeagueGothic;
+    src: url('../fonts/LeagueGothic-Regular.otf') format("opentype");
+}
+
+@font-face {
+    font-family: DroidSans;
+    src: url('../fonts/DroidSans.ttf') format("truetype");
+}
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -8,7 +19,7 @@ body {
     /* background-image: url('../images/background.png'); */
     /* background-size: cover; */
      background: repeating-linear-gradient(to right, #0e4a4b 0%, #116769 21%, #116a6e 50%, #116769 79%, #0e4a4b 100%);
-     font-
+    font-family: LeagueGothic;
 }
 
 .hbox {
@@ -21,16 +32,17 @@ header {
 
 nav ul {
     margin-top: 30px;
-    margin-left: 25px;
+    margin-left: 35px;
     list-style-type: none;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    /*max-width: 880px;*/
 }
 
 nav ul li {
     padding-left: 20px;
     font-size: 18px;
-    font-weight: bold;
     text-transform: uppercase;
     color: #ffffff;
 }
@@ -53,6 +65,7 @@ main {
 }
 
 .box {
+    margin-left: 35px;
     position: relative;
     max-width: 230px;
     overflow: hidden;
@@ -66,7 +79,6 @@ main {
     right: 3px;
     padding: 8px;
     font-size: 16px;
-    font-weight: bold;
     text-transform: uppercase;
     background: #7e426d;
     color: #ffffff;
@@ -78,8 +90,8 @@ main {
     top: 200px;
     left: 16px; */
     margin-left: 16px;
-    font-weight: bold;
     font-size: 22px;
+    font-weight: bold; /* trial */
     text-transform: uppercase;
     color: #7e426d;
 }
@@ -89,7 +101,6 @@ main {
     /* position: absolute;
     top: 232px;
     left: 16px; */
-    font-weight: bold;
     margin-left: 16px;
     font-size: 14px;
     text-transform: uppercase;
@@ -98,8 +109,11 @@ main {
 }
 
 .box-content {
-    margin-left: 16px;
+    padding-left: 16px;
+    padding-top: 15px;
     color: #8b8787;
+    border-top: 1px dotted #a8a8a8;
     font-size: 10px;
+    font-family: DroidSans;
 }
 
