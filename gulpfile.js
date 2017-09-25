@@ -5,9 +5,10 @@ const uglify = require('gulp-uglify');
 const pump = require('pump');
 const concat = require('gulp-concat');
 const clean = require('gulp-clean');
+const browserify = require('gulp-browserify');
 
 gulp.task('compile:js', () => {
-    return gulp.src(['./scripts/*.js', '!./scripts/bootstrap.min.js', '!./scripts/jquery.min.js'])
+    return gulp.src(['./scripts/*.js', '!./scripts/bootstrap.min.js', '!./scripts/jquery-3.2.1.min.js', '!./scripts/sammy-latest.min.js'])
         .pipe(babel({presets: ['env']}))
         .pipe(gulp.dest('./tmp/scripts'));
 });
@@ -26,6 +27,12 @@ gulp.task('minify:js', ['compile:js'], () => {
     ]);
 });
 
+gulp.task('browserify:js', ['minify:js'], () => {
+    return gulp.src('./dist/scripts/main.js')
+        .pipe(browserify())
+        .pipe(gulp.dest('./dist/scripts'));
+});
 
-gulp.task('build', ['minify:css', 'minify:js'], () => {
+
+gulp.task('build', ['minify:css', 'browserify:js'], () => {
 });

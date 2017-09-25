@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: DroidSans;
-    src: url('../fonts/DroidSans.ttf') format("truetype");
+    src: url('../fonts/DroidSans-Regular.ttf') format("truetype");
 }
 
 html, body {
@@ -193,6 +193,14 @@ footer {
 .footer-section {
     margin-left: 190px;
     margin-top: 50px;
+    width: 100%;
+    padding: 0;
+}
+
+.footer-section .section-content p {
+    width: 275px;
+    margin: 0;
+    padding: 0;
 }
 
 .footer-section .section-title {
@@ -205,6 +213,26 @@ footer {
     font-family: DroidSans;
     font-size: 9px;
     color: #ffffff;
+    width: 100%;
+}
+
+footer ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+footer ul li {
+    margin-bottom: 21px;
+}
+
+footer ul li img {
+    width: 9px;
+    height: 9px;
+    margin-right: 11px;
+}
+
+footer .sections-container {
 }
 
 
