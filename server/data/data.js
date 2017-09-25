@@ -11,7 +11,7 @@ const init = (db) => {
     };
 
     const data = {
-        getPosts,
+        getPosts
     };
 
     return Promise.resolve(data);

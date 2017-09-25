@@ -2,7 +2,7 @@ const async = () => {
     return Promise.resolve();
 };
 
-const { config } = require('./data/app/config');
+const { config } = require('./server/app/config');
 
 async()
 .then(() => require('./server/db').init(config.connectionString))

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const fs = require('fs');
 
 const init = (data) => {
     const app = express();
@@ -22,6 +23,12 @@ const init = (data) => {
             .then((posts) => {
                 return response.json(posts);
             })
+    });
+
+    app.get('/templates/:name', (request, response) => {
+        const name = request.params.name;
+        const template = fs.readFileSync(path.join(__dirname, '../../templates/') + name + '.handlebars', 'utf-8');
+        return response.json(template);
     });
 
     return Promise.resolve(app);
