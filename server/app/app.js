@@ -19,7 +19,8 @@ const init = (data) => {
     });
 
     app.get('/posts', (request, response) => {
-        return data.getPosts()
+        const page = +request.query.page;
+        return data.getPosts(page)
             .then((posts) => {
                 return response.json(posts);
             })

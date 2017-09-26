@@ -339,6 +339,43 @@ main {
     border-top: 1px dotted #a6a6a6;
 }
 
+aside {
+    margin-right: 30px;
+}
+
+aside ul {
+    max-width: 378px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+aside ul li {
+    float: left;
+    background-color: #d6d6d6;
+}
+
+.aside-box {
+    background-color: #e7e7e7;
+}
+
+.selected-aside-post {
+    background-color: #e7e7e7;
+}
+
+.aside-post {
+    max-width: 378px; 
+    height: 337px;
+}
+
+.aside-title {
+    margin: 0;
+    padding: 22px 29px 14px 31px;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #7e426d;
+    border: 1px dotted #969696;
+}
 
 footer {
     border-top: 1px solid #317476;

@@ -2,7 +2,11 @@
     <div class="row boxes-container posts-container">
         {{#each posts}}
             <div class="col-xs-2">
+                {{#ifThird @index}}
+                <div class="big-box">
+                {{else}}
                 <div class="box">
+                {{/ifThird}}
                     <p class="box-category">{{this.category}}</p>
                     <h2 class="box-title"><a href="#/posts/{{this.id}}">{{this.title}}</a></h2>
                     <p class="box-author">Posted by {{this.author}}</p>
@@ -16,17 +20,23 @@
 <div class="container-fluid">
     <div class="row boxes-container">
         <div class="col-1">
-            <img src="./images/pagination-left.png" alt="" class="page-img">
+            {{#if canPrev}}
+                <img src="./images/pagination-left.png" alt="" class="page-img" onclick="prevPage()">
+            {{else}}
+                <img src="./images/pagination-left.png" alt="" class="page-img">
+            {{/if}}
         </div>
         <div class="col-10 text-center">
-            <span class="i-page-link">1</span>
-            <span class="i-page-link">2</span>
-            <span class="i-page-link">3</span>
-            <span class="i-page-link">4</span>
-            <span class="i-page-link">5</span>
+            {{#each pages}}
+                <span class="i-page-link"><a href="#/?page={{this}}">{{this}}</a></span>
+            {{/each}}
         </div>
         <div class="col-1">
-            <img src="./images/pagination-right.png" alt="" class="page-img">
+            {{#if canNext}}
+                <img src="./images/pagination-right.png" alt="" class="page-img" onclick="nextPage()">
+            {{else}}
+                <img src="./images/pagination-right.png" alt="" class="page-img">
+            {{/if}}
         </div>
     </div>
 </div>

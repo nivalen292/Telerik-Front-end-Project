@@ -1,12 +1,19 @@
 const init = (db) => {
     const objectId = require('mongodb').ObjectID;
 
-    const getPosts = () => {
+    const getPosts = (page) => {
         return db.collection('thestyle-posts')
             .find()
             .toArray()
             .then((posts) => {
-                return Promise.resolve(posts);
+                const postsLen = posts.length;
+                const POSTS_PER_PAGE = 11;
+                posts = posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+                const result = {
+                    posts: posts,
+                    maxPage: Math.ceil(postsLen / POSTS_PER_PAGE)
+                };
+                return Promise.resolve(result);
             })
     };
 
