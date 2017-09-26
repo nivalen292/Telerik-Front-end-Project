@@ -25,6 +25,14 @@ const init = (data) => {
             })
     });
 
+    app.get('/posts/:id', (request, response) => {
+        const id = +request.params.id;
+        return data.getPostById(id)
+            .then((post) => {
+                return response.json(post);
+            })
+    });
+
     app.get('/templates/:name', (request, response) => {
         const name = request.params.name;
         const template = fs.readFileSync(path.join(__dirname, '../../templates/') + name + '.handlebars', 'utf-8');

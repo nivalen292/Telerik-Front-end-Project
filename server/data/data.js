@@ -10,8 +10,17 @@ const init = (db) => {
             })
     };
 
+    const getPostById = (id) => {
+        return db.collection('thestyle-posts')
+            .findOne({'id': id})
+            .then((post) => {
+                return Promise.resolve(post);
+            })
+    };
+
     const data = {
-        getPosts
+        getPosts,
+        getPostById
     };
 
     return Promise.resolve(data);

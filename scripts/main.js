@@ -13,7 +13,7 @@ $(document).ready(() => {
                 })
                 .then((posts) => {
                     const compiledTemplate = Handlebars.compile(rawTemplate);
-                    $('.posts-container').html(compiledTemplate({
+                    $('main').html(compiledTemplate({
                         posts: posts
                     }));
                 });
@@ -31,6 +31,18 @@ $(document).ready(() => {
 
         router.get('#/posts/:id', (data) => {
             const id = +data.params.id;
+            let rawTemplate;
+            getTemplate('selected-post')
+                .then((template) => {
+                    rawTemplate = template;
+                    return getRequest('http://localhost:3000/posts/' + id);
+                })
+                .then((post) => {
+                    const compiledTemplate = Handlebars.compile(rawTemplate);
+                    $('main').html(compiledTemplate({
+                        post: post
+                    }));
+                });
         });
 
 
