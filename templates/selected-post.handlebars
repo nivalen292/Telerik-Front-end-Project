@@ -3,7 +3,7 @@
 </div>
 <div class="container-fluid i-padding-reset">
     <div class="row">
-        <div class="col-9">
+        <div class="">
             <div class="current-box">
                 <div class="box-top-border"></div>
                 <div class="row">
@@ -16,7 +16,7 @@
                             <h2>Tags</h2>
                             <ul>
                                 {{#each post.tags}}
-                                    <li>{{this}}</li>
+                                <li>{{this}}</li>
                                 {{/each}}
                             </ul>
                             <div class="clear-float"></div>
@@ -24,9 +24,9 @@
                         <div class="current-box-related i-push-left">
                             <h2>Related posts</h2>
                             <ul>
-                                <li><img src="./images/li-link.png" alt=""><span>asdasd</span></li>
-                                <li><img src="./images/li-link.png" alt=""><span>asdasd</span></li>
-                                <li><img src="./images/li-link.png" alt=""><span>asdasd</span></li>
+                                <li><img src="./images/li-link.png" alt="" class="li-link"><span>asdasd</span></li>
+                                <li><img src="./images/li-link.png" alt="" class="li-link"><span>asdasd</span></li>
+                                <li><img src="./images/li-link.png" alt="" class="li-link"><span>asdasd</span></li>
                             </ul>
                         </div>
                         <div class="current-box-share i-push-left">
@@ -49,18 +49,93 @@
                 </div>
                 <div class="box-bottom-border"></div>
             </div>
+            <div class="current-box-comments">
+                <div class="box-top-border"></div>
+                <div>
+                    <h2 class="box-title">{{post.comments.length}} Comments</h2>
+                </div>
+                <div class="comments-container">
+                    <div class="comment">
+                        <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
+                        <div class="comment-details">
+                            <h2 class="comment-author">Pesho mainata</h2>
+                            <p class="comment-content">asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
+                                asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
+                                asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
+                                asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
+                                asdasdasdasd asdasd asdasdasdas
+                            </p>
+                        </div>
+                        <button>REPLY</button>
+                        <div class="subcomments">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="box-bottom-border"></div>
+            </div>
         </div>
-        <div class="col-3">
+        <div class="">
             <aside>
                 <div class="aside-post aside-box">
-                    <ul>
-                        <li><h2 class="aside-title">Recent</h2></li>
-                        <li><h2 class="aside-title">Popular</h2></li>
-                        <li><h2 class="aside-title">Random</h2></li>
+                    <ul class="nav-ul">
+                        <li>
+                            <h2 class="aside-title">Recent</h2>
+                        </li>
+                        <li>
+                            <h2 class="aside-title">Popular</h2>
+                        </li>
+                        <li>
+                            <h2 class="aside-title">Random</h2>
+                        </li>
                     </ul>
                     <div class="aside-content">
-
+                        <div class="content">
+                            <img src="./images/share-facebook.png" alt="">
+                            <div class="content-details">
+                                <h3 class="content-title">asdasd</h3>
+                                <p class="content-date">asdasdas</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <img src="./images/share-facebook.png" alt="">
+                            <div class="content-details">
+                                <h3 class="content-title">asdasd</h3>
+                                <p class="content-date">asdasdas</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <img src="./images/share-facebook.png" alt="">
+                            <div class="content-details">
+                                <h3 class="content-title">asdasd</h3>
+                                <p class="content-date">asdasdas</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <img src="./images/share-facebook.png" alt="">
+                            <div class="content-details">
+                                <h3 class="content-title">asdasd</h3>
+                                <p class="content-date">asdasdas</p>
+                            </div>
+                        </div>
+                        <div class="box-bottom-border"></div>
                     </div>
+                </div>
+                <div class="aside-widget aside-box">
+                    <h2 class="aside-title">Custom text widget</h2>
+                    <ul>
+                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
+                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
+                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
+                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
+                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
+                    </ul>
+                    <div class="box-bottom-border"></div>
+                </div>
+                <div class="aside-widget aside-box">
+                    <h2 class="aside-title">Custom text widget</h2>
+                    <p class="text-content">Pesho gosho Toshooo Peshoo</p>
+                    <div class="box-bottom-border"></div>
                 </div>
             </aside>
         </div>

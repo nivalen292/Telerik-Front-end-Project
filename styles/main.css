@@ -288,7 +288,7 @@ main {
     padding: 0;
 }
 
-.current-box-related ul li img {
+.li-link {
     width: 10px;
     height: 5px;
     margin-left: -3px;
@@ -322,7 +322,8 @@ main {
     margin-left: 15px;
 }
 
-.current-box-right .box-title {
+.current-box-right .box-title, .current-box-comments .box-title {
+    font-size: 27px;
     margin: 0;
     color: #7e426d;
 }
@@ -339,18 +340,90 @@ main {
     border-top: 1px dotted #a6a6a6;
 }
 
+.current-box-comments {
+    padding: 10px 0px;
+    background-color: #ffffff;
+    position: relative;
+    margin-left: 228px;
+    margin-top: 16px;
+    width: 972px;
+}
+
+.current-box-comments .box-title {
+    margin-left: 29px;
+    margin-top: 29px;
+    margin-right: 36px;
+    padding-bottom: 26px;
+    border-bottom: 1px dotted #a6a6a6;
+}
+
+.comment {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-top: 26px;
+    margin-left: 29px;
+    padding-bottom: 18px;
+    border-bottom: 1px dotted #a6a6a6;
+}
+
+.comment .comment-img {
+    border: 4px solid #efefef;
+    width: 64px;
+    height: 64px;
+}
+
+.comment-details {
+    margin-left: 17px;
+}
+
+.comment-author {
+    font-size: 18px;
+    color: #2c2c2c;
+    text-transform: uppercase;
+}
+
+.comment-content {
+    font-family: DroidSans;
+    font-size: 9px;
+    color: #8b8787;
+    margin-bottom: 15px;
+}
+
+.comment button {
+    position: absolute;
+    right: 33px;
+    bottom: 18px;
+    border: 0;
+    background-color: #efefef;
+    color: #6e6e6e;
+    width: 52px;
+    height: 30px;
+    /*margin-left: 50px;*/
+    /*margin-bottom: 18px;*/
+    font-size: 8px;
+    font-family: DroidSans;
+}
+
 aside {
-    margin-right: 30px;
+    margin-left: 15px;
 }
 
 aside ul {
-    max-width: 378px;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-aside ul li {
+aside .nav-ul {
+    width: 378px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+aside .nav-ul li {
+    width: 33.33%;
     float: left;
     background-color: #d6d6d6;
 }
@@ -366,6 +439,15 @@ aside ul li {
 .aside-post {
     max-width: 378px; 
     height: 337px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.aside-widget {
+    max-width: 378px; 
+    height: 277px;
+    margin-bottom: 16px;
+    position: relative;
 }
 
 .aside-title {
@@ -375,6 +457,57 @@ aside ul li {
     text-transform: uppercase;
     color: #7e426d;
     border: 1px dotted #969696;
+}
+
+.aside-content .content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 68px;
+    border-bottom: 1px dotted #969696;
+}
+
+.aside-content .content img {
+    width: 44px;
+    height: 44px;
+    margin: 14px 10px 10px 17px;
+}
+
+.aside-content .content-details {
+    margin-top: 18px;
+}
+
+.aside-content .content .content-title {
+    font-size: 10px;
+    color: #000000;
+}
+
+.aside-content .content .content-date {
+    font-size: 9px;
+    font-family: DroidSans;
+    font-style: italic;
+    color: #a1a1a1;
+    margin-top: -5px;
+}
+
+.aside-widget ul li {
+    margin-top: 22px;
+    margin-left: 24px;
+    color: #979393;
+    font-size: 10px;
+    font-family: DroidSans;
+}
+
+.aside-widget .li-link {
+    margin-right: 13px;
+}
+
+.aside-widget .text-content {
+    margin-top: 22px;
+    margin-left: 24px;
+    color: #979393;
+    font-size: 9px;
+    font-family: DroidSans;
 }
 
 footer {
