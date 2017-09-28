@@ -18,6 +18,8 @@ const init = (data) => {
         next();
     });
 
+    app.use(express.static(path.join(__dirname + '/../../dist')));
+
     app.get('/posts', (request, response) => {
         const page = +request.query.page;
         return data.getPosts(page)
@@ -38,6 +40,10 @@ const init = (data) => {
         const name = request.params.name;
         const template = fs.readFileSync(path.join(__dirname, '../../templates/') + name + '.handlebars', 'utf-8');
         return response.json(template);
+    });
+
+    app.get('*', (request, response) => {
+        return response.sendFile(path.join(__dirname + '/../../index.html'));
     });
 
     return Promise.resolve(app);

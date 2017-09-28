@@ -64,7 +64,7 @@ nav ul {
 
 nav ul li {
     padding-left: 20px;
-    font-size: 18px;
+    font-size: 24px;
     text-transform: uppercase;
     color: #ffffff;
 }
@@ -84,12 +84,13 @@ nav input[type="text"] {
     border: none;
     outline: none;
     color: #ffffff;
+    font-size: 12px;
 }
 
 nav .search-img {
     position: absolute;
     right: 11px;
-    top: 9px;
+    top: 15px;
     width: 13px;
     height: 13px;
 }
@@ -131,7 +132,7 @@ main {
     top: 3px;
     right: 3px;
     padding: 8px;
-    font-size: 16px;
+    font-size: 22px;
     text-transform: uppercase;
     background: #7e426d;
     color: #ffffff;
@@ -140,7 +141,7 @@ main {
 .box-title {
     margin-top: 200px; 
     margin-left: 16px;
-    font-size: 22px;
+    font-size: 30px;
     font-weight: bold; /* trial */
     text-transform: uppercase;
     color: #7e426d;
@@ -149,7 +150,7 @@ main {
 .box-author {
     margin-top: -10px; 
     margin-left: 16px;
-    font-size: 14px;
+    font-size: 18px;
     text-transform: uppercase;
     color: #212121;
     z-index: 992;
@@ -160,7 +161,7 @@ main {
     padding-top: 15px;
     color: #8b8787;
     border-top: 1px dotted #a8a8a8;
-    font-size: 10px;
+    font-size: 13px;
     font-family: DroidSans;
 }
 
@@ -201,7 +202,7 @@ main {
 
 .i-page-link {
     color: #ffffff;
-    font-size: 27px;
+    font-size: 36px;
     margin-left: 19px;
 }
 
@@ -211,6 +212,7 @@ main {
 
 .current-nav {
     color: rgba(0, 0, 0, 0.5);
+    font-size: 13px;
     margin-top: -25px;
     margin-left: 100px;
 }
@@ -254,10 +256,14 @@ main {
 }
 
 .current-box h2 {
-    font-size: 18px;
+    font-size: 24px;
     text-transform: uppercase;
     color: #000000;
     margin-bottom: 12px;
+}
+
+.current-box-right .box-title {
+    font-size: 36px;
 }
 
 .current-box-tags ul {
@@ -281,7 +287,7 @@ main {
 
 .current-box-related ul {
     margin-top: 25px;
-    font-size: 8px;
+    font-size: 12px;
     font-family: DroidSans;
     color: #6e6e6e;
     margin: 0;
@@ -323,7 +329,7 @@ main {
 }
 
 .current-box-right .box-title, .current-box-comments .box-title {
-    font-size: 27px;
+    font-size: 36px;
     margin: 0;
     color: #7e426d;
 }
@@ -378,14 +384,14 @@ main {
 }
 
 .comment-author {
-    font-size: 18px;
+    font-size: 24px;
     color: #2c2c2c;
     text-transform: uppercase;
 }
 
 .comment-content {
     font-family: DroidSans;
-    font-size: 9px;
+    font-size: 13px;
     color: #8b8787;
     margin-bottom: 15px;
 }
@@ -401,7 +407,7 @@ main {
     height: 30px;
     /*margin-left: 50px;*/
     /*margin-bottom: 18px;*/
-    font-size: 8px;
+    font-size: 11px;
     font-family: DroidSans;
 }
 
@@ -450,10 +456,14 @@ aside .nav-ul li {
     position: relative;
 }
 
+.aside-widget .li-link {
+    font-size: 14px;
+}
+
 .aside-title {
     margin: 0;
     padding: 22px 29px 14px 31px;
-    font-size: 22px;
+    font-size: 30px;
     text-transform: uppercase;
     color: #7e426d;
     border: 1px dotted #969696;
@@ -478,12 +488,12 @@ aside .nav-ul li {
 }
 
 .aside-content .content .content-title {
-    font-size: 10px;
+    font-size: 14px;
     color: #000000;
 }
 
 .aside-content .content .content-date {
-    font-size: 9px;
+    font-size: 11px;
     font-family: DroidSans;
     font-style: italic;
     color: #a1a1a1;
@@ -494,7 +504,7 @@ aside .nav-ul li {
     margin-top: 22px;
     margin-left: 24px;
     color: #979393;
-    font-size: 10px;
+    font-size: 14px;
     font-family: DroidSans;
 }
 
@@ -506,7 +516,7 @@ aside .nav-ul li {
     margin-top: 22px;
     margin-left: 24px;
     color: #979393;
-    font-size: 9px;
+    font-size: 13px;
     font-family: DroidSans;
 }
 
@@ -531,14 +541,14 @@ footer {
 }
 
 .footer-section .section-title {
-    font-size: 22px;
+    font-size: 30px;
     text-transform: uppercase;
     margin-bottom: 20px;
 }
 
 .footer-section .section-content {
     font-family: DroidSans;
-    font-size: 9px;
+    font-size: 13px;
     color: #ffffff;
     width: 100%;
 }
