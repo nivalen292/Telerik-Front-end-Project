@@ -363,15 +363,38 @@ main {
     border-bottom: 1px dotted #a6a6a6;
 }
 
+.comments-container {
+    padding-bottom: 18px;
+}
+
 .comment {
+    border-bottom: 1px dotted #a6a6a6;
+    margin-left: 29px;
+    margin-right: 36px;
+}
+
+.comment-data {
     position: relative;
     display: flex;
     flex-direction: row;
     margin-top: 26px;
     margin-left: 29px;
-    padding-bottom: 18px;
-    border-bottom: 1px dotted #a6a6a6;
+    margin-right: 36px;
 }
+
+.subcomments .comment {
+    border: 0;
+}
+
+.subcomments .comment-data {
+    margin-right: 0;
+}
+
+.comment .subcomments {
+    margin-top: -50px;
+    margin-left: 50px;
+}
+
 
 .comment .comment-img {
     border: 4px solid #efefef;
@@ -380,6 +403,7 @@ main {
 }
 
 .comment-details {
+    position: relative;
     margin-left: 17px;
 }
 
@@ -393,7 +417,7 @@ main {
     font-family: DroidSans;
     font-size: 13px;
     color: #8b8787;
-    margin-bottom: 15px;
+    margin-bottom: 50px;
 }
 
 .comment button {
@@ -409,6 +433,19 @@ main {
     /*margin-bottom: 18px;*/
     font-size: 11px;
     font-family: DroidSans;
+}
+
+.comment-form * {
+    margin-left: 29px;
+    margin-bottom: 15px;
+}
+
+.comment-form textarea {
+    resize: none;
+}
+
+.comment-form .box-title {
+    border: 0;
 }
 
 aside {

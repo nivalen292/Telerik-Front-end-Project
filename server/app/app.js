@@ -42,7 +42,7 @@ const init = (data) => {
         return response.json(template);
     });
 
-    app.get('*', (request, response) => {
+    app.get('/', (request, response) => {
         return response.sendFile(path.join(__dirname + '/../../index.html'));
     });
 
