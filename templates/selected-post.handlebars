@@ -55,102 +55,47 @@
                     <h2 class="box-title">{{post.comments.length}} Comments</h2>
                 </div>
                 <div class="comments-container">
-                    <div class="comment">
-                        <div class="comment-data">
-                            <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
-                            <div class="comment-details">
-                                <h2 class="comment-author">Pesho mainata</h2>
-                                <p class="comment-content">asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                    asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                    asdasd asdasdasdas asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                </p>
-                                <button>REPLY</button>
-                            </div>
-                        </div>
-                        <div class="subcomments">
-                            <div class="comment">
-                                <div class="comment-data">
-                                    <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
-                                    <div class="comment-details">
-                                        <h2 class="comment-author">Pesho mainata</h2>
-                                        <p class="comment-content">asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd
-                                            asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                            asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                            asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                            asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                            asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                            asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                            asdasd asdasdasdas asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                            asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                            asdasdasdasd asdasd asdasdasdas
-                                        </p>
-                                        <button>REPLY</button>
-                                    </div>
+                    {{#each post.comments}}
+                        <div class="comment">
+                            <div class="comment-data">
+                                <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
+                                <div class="comment-details">
+                                    <h2 class="comment-author">{{this.author}}</h2>
+                                    <p class="comment-content">{{this.content}}</p>
+                                    <button class="reply-button">REPLY</button>
                                 </div>
                             </div>
+                            {{#if this.subComments.length}}
+                                <div class="subcomments">
+                                    {{#each this.subComments}}
+                                        <div class="subcomment">
+                                            <div class="comment-data">
+                                                <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
+                                                <div class="comment-details">
+                                                    <h2 class="comment-author">{{this.author}}</h2>
+                                                    <p class="comment-content">{{this.content}}</p>
+                                                    <button class="reply-button">REPLY</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+                            <br>
+                            <br>
                         </div>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="comment">
-                        <div class="comment-data">
-                            <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
-                            <div class="comment-details">
-                                <h2 class="comment-author">Pesho mainata</h2>
-                                <p class="comment-content">asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                    asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                    asdasd asdasdasdas asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                </p>
-                                <button>REPLY</button>
-                            </div>
-                        </div>
-                        <div class="subcomments">
-
-                        </div>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="comment">
-                        <div class="comment-data">
-                            <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
-                            <div class="comment-details">
-                                <h2 class="comment-author">Pesho mainata</h2>
-                                <p class="comment-content">asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                    asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd
-                                    asdasd asdasdasdas asdasdasdasd asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                    asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas asdasdasdasd asdasd asdasdasdas
-                                </p>
-                                <button>REPLY</button>
-                            </div>
-                        </div>
-                        <div class="subcomments">
-
-                        </div>
-                        <br>
-                        <br>
-                    </div>
+                    {{/each}}
                 </div>
-                <form action="" class="comment-form" method="POST">
+                <form action="/posts/{{post.id}}/comments/-2" class="comment-form" method="POST">
                     <h2 class="box-title">Leave a comment</h2>
-                    <input type="text">
+                    <input type="text" placeholder="Nickname" id="form-nickname">
                     <br>
-                    <input type="text">
+                    <input type="text" placeholder="Avatar url" id="form-avatarUrl">
                     <br>
-                    <textarea r></textarea>
+                    <textarea rows="4" placeholder="Message" id="form-message"></textarea>
+                    <br>
+                    <button class="submit-comment">SUBMIT</button>
+                    {{!--<input type="submit" value="SUBMIT"/>--}}
                 </form>
                 <div class="box-bottom-border"></div>
             </div>

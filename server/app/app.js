@@ -42,6 +42,13 @@ const init = (data) => {
         return response.json(template);
     });
 
+    app.post('/post/:postId/comments/:commentIndex', (request, response) => {
+        const postId = +request.params.postId;
+        const commentIndex = +request.params.commentIndex;
+        const comment = request.body;
+        return data.postComment(postId, commentIndex, comment);
+    });
+
     app.get('/', (request, response) => {
         return response.sendFile(path.join(__dirname + '/../../index.html'));
     });

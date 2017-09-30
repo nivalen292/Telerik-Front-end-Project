@@ -1,7 +1,30 @@
 import { get as getRequest } from './requester';
 import { post as postRequest } from './requester';
 import { getTemplate as getTemplate } from './get-template';
-import { nextPage, prevPage, getPage } from './change-page';
+import { nextPage as nextPage, prevPage as prevPage, getPage as getPage } from './change-page';
+import { postComment as postComment } from './comments';
+
+
+$(document).ready(() => {
+
+
+    $(document).on('click', '.prev-page-link', () => {
+        prevPage();
+    });
+
+    $(document).on('click', '.next-page-link', () => {
+        nextPage();
+    });
+
+    $(document).on('click', '.reply-button', (ev) => {
+        postComment(ev);
+    });
+
+    $(document).on('click', '.submit-button', (ev) => {
+        postComment(ev);
+    });
+
+});
 
 Handlebars.registerHelper('ifThird', function (index, options) {
     if (index === 2) {

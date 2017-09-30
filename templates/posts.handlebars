@@ -20,11 +20,7 @@
 <div class="container-fluid">
     <div class="row boxes-container">
         <div class="col-1">
-            {{#if canPrev}}
-                <img src="./images/pagination-left.png" alt="" class="page-img" onclick="prevPage()">
-            {{else}}
-                <img src="./images/pagination-left.png" alt="" class="page-img">
-            {{/if}}
+            <img src="./images/pagination-left.png" alt="" class="page-img prev-page-link">
         </div>
         <div class="col-10 text-center">
             {{#each pages}}
@@ -32,11 +28,7 @@
             {{/each}}
         </div>
         <div class="col-1">
-            {{#if canNext}}
-                <img src="./images/pagination-right.png" alt="" class="page-img" onclick="nextPage()">
-            {{else}}
-                <img src="./images/pagination-right.png" alt="" class="page-img">
-            {{/if}}
+            <img src="./images/pagination-right.png" alt="" class="page-img next-page-link">
         </div>
     </div>
 </div>

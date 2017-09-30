@@ -21,13 +21,15 @@ const getPage = () => {
 
 
 const nextPage = () => {
-    let newPage = getPage() + 1;
+    const currentPage = getPage();
+    let newPage = currentPage + 1;
     updateQueryStringParameter(window.location.href, 'page', newPage);
 };
 
 const prevPage = () => {
-    let newPage = getPage() - 1;
-    if (page > 1) {
+    const currentPage = getPage();
+    let newPage = currentPage - 1;
+    if (currentPage > 1) {
         updateQueryStringParameter(window.location.href, 'page', newPage);
     }
 };

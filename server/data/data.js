@@ -19,9 +19,24 @@ const init = (db) => {
 
     const getPostById = (id) => {
         return db.collection('thestyle-posts')
-            .findOne({'id': id})
+            .findOne({ 'id': id })
             .then((post) => {
                 return Promise.resolve(post);
+            })
+    };
+
+    const postComment = (postId, commentIndex, comment) => {
+        return getPostById(postId)
+            .then((post) => {
+                const oldPost = post;
+                if (commentIndex === -2) {
+                    post.comments.push(comment);
+                }
+                else {
+                    post.comments[commentIndex].subComments.push(comment);
+                }
+                return db.collection('thestyle-posts')
+                    .update(oldPost, post);
             })
     };
 
