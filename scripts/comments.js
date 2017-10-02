@@ -1,6 +1,7 @@
 //    /posts/{{post.id}}/comments/-2
+import { post as postRequest } from './requester';
 
-const postComment = (ev) => {
+const setProperUrl = (ev) => {
     const $this = $(ev.target);
     let $comment = $this.parent().parent().parent();
 
@@ -12,15 +13,31 @@ const postComment = (ev) => {
     if (commentIndex < 0) {
         commentIndex = -2;
     }
+    window.sessionStorage.setItem('commentIndex', commentIndex);
+}
+
+const postComment = (ev) => {
+    // const $this = $(ev.target);
+    // let $comment = $this.parent().parent().parent();
+
+    // if ($comment.parent().hasClass('subcomments')) {
+    //     $comment = $comment.parent().parent();
+    // }
+
+    // let commentIndex = $('.comment').index($comment);
+    // if (commentIndex < 0) {
+    //     commentIndex = -2;
+    // }
     const postId = +window.location.href.split('posts/')[1].split('/')[0];
 
     const data = {
-        nickname: $('#form-nickname').value(),
-        avatarUrl: $('#form-avatarUrl').value(),
-        message: $('#form-message').value()
+        author: $('#form-nickname').val(),
+        imageUrl: $('#form-avatarUrl').val(),
+        content: $('#form-message').val()
     }
 
-    postRequest('http://localhost:3000/posts/' + postId + '/comments/' + commentIndex, data)
+    // 'post' only works
+    postRequest('http://localhost:3000/posts/' + postId + '/comments/' + window.sessionStorage.getItem('commentIndex'), data)
         .then(() => {
             getTemplate('selected-post')
                 .then((template) => {
@@ -36,4 +53,4 @@ const postComment = (ev) => {
         });
 }
 
-export { postComment };
+export { postComment, setProperUrl };

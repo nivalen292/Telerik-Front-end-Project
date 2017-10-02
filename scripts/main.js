@@ -2,11 +2,12 @@ import { get as getRequest } from './requester';
 import { post as postRequest } from './requester';
 import { getTemplate as getTemplate } from './get-template';
 import { nextPage as nextPage, prevPage as prevPage, getPage as getPage } from './change-page';
-import { postComment as postComment } from './comments';
+import { postComment as postComment, setProperUrl as setProperUrl } from './comments';
 
 
 $(document).ready(() => {
 
+    window.sessionStorage.setItem('commentIndex', -2);
 
     $(document).on('click', '.prev-page-link', () => {
         prevPage();
@@ -17,7 +18,7 @@ $(document).ready(() => {
     });
 
     $(document).on('click', '.reply-button', (ev) => {
-        postComment(ev);
+        setProperUrl(ev);
     });
 
     $(document).on('click', '.submit-button', (ev) => {

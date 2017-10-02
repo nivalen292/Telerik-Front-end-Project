@@ -42,11 +42,14 @@ const init = (data) => {
         return response.json(template);
     });
 
-    app.post('/post/:postId/comments/:commentIndex', (request, response) => {
+    app.post('/posts/:postId/comments/:commentIndex', (request, response) => {
         const postId = +request.params.postId;
         const commentIndex = +request.params.commentIndex;
         const comment = request.body;
-        return data.postComment(postId, commentIndex, comment);
+        return data.postComment(postId, commentIndex, comment)
+            .then(() => {
+                return response.status(201);
+            });
     });
 
     app.get('/', (request, response) => {

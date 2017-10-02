@@ -30,19 +30,40 @@ const init = (db) => {
             .then((post) => {
                 const oldPost = post;
                 if (commentIndex === -2) {
-                    post.comments.push(comment);
+                    return db.collection('thestyle-posts')
+                        .update(
+                        {
+                            'id': postId
+                        },
+                        {
+                            $push: {
+                                'comments': comment
+                            }
+                        });
+                    // post.comments.push(comment);
                 }
                 else {
-                    post.comments[commentIndex].subComments.push(comment);
+                    return db.collection('thestyle-posts')
+                        .update(
+                        {
+                            'id': postId
+                        },
+                        {
+                            $push: {
+                                ['comments.' + commentIndex + '.subComments']: comment
+                            }
+                        });
+                    // post.comments[commentIndex].subComments.push(comment);
                 }
-                return db.collection('thestyle-posts')
-                    .update(oldPost, post);
+                // return db.collection('thestyle-posts')
+                //     .update(oldPost, post);
             })
     };
 
     const data = {
         getPosts,
-        getPostById
+        getPostById,
+        postComment
     };
 
     return Promise.resolve(data);
