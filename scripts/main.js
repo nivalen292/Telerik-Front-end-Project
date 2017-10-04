@@ -26,6 +26,17 @@ $(document).ready(() => {
         postComment(ev);
     });
 
+    $(document).on('click', '.aside-title', (ev) => {
+        const $this = $(ev.target);
+        const $li = $this.parent();
+        const $ul = $this.parent().parent();
+        const index = $ul.children('li').index($li);
+
+        if (!$this.hasClass('selected-aside-post')) {
+            $ul.children('.selected-aside-post').removeClass('selected-aside-post');
+        }
+    });
+
 });
 
 Handlebars.registerHelper('ifThird', function (index, options) {
@@ -66,7 +77,7 @@ $(document).ready(() => {
                                     latestPosts: latestPosts,
                                     latestPost: latestPosts[0]
                                 }));
-                            })
+                            });
                         const canNext = getPage() < dataObj.maxPage;
                         const canPrev = getPage() > 1;
                         pages = pages.slice(0, 5);
@@ -95,15 +106,37 @@ $(document).ready(() => {
         router.get('#/posts/:id', (data) => {
             const id = +data.params.id;
             let rawTemplate;
+            let latestPosts;
+            getRequest('http://localhost:3000/posts')
+                .then((postsObj) => {
+                    latestPosts = getLatest(postsObj.posts);
+                    return Promise.resolve(latestPosts);
+                })
+                .then((latestPosts) => {
+                    return getTemplate('footer')
+                })
+                .then((footerTemplate) => {
+                    const compiledTemplate = Handlebars.compile(footerTemplate);
+                    $('footer').html(compiledTemplate({
+                        latestPosts: latestPosts,
+                        latestPost: latestPosts[0]
+                    }));
+                });
             getTemplate('selected-post')
                 .then((template) => {
                     rawTemplate = template;
                     return getRequest('http://localhost:3000/posts/' + id);
                 })
                 .then((post) => {
+                    const asidePosts = latestPosts.slice(0, 4);
                     const compiledTemplate = Handlebars.compile(rawTemplate);
+                    const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)]
                     $('main').html(compiledTemplate({
-                        post: post
+                        asidePosts: asidePosts,
+                        latestPosts: latestPosts,
+                        latestPost: latestPosts[0],
+                        post: post,
+                        randomPost: randomPost
                     }));
                 });
         });

@@ -8,7 +8,9 @@ const init = (db) => {
             .then((posts) => {
                 const postsLen = posts.length;
                 const POSTS_PER_PAGE = 11;
-                posts = posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+                if (page) {
+                    posts = posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+                }
                 const result = {
                     posts: posts,
                     maxPage: Math.ceil(postsLen / POSTS_PER_PAGE)

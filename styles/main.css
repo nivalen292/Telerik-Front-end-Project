@@ -29,6 +29,10 @@ body {
     margin: 0 0 415px;
 }
 
+.hidden {
+    display: none;
+}
+
 .clear-float {
     clear: both;
 }
@@ -544,7 +548,7 @@ aside .nav-ul li {
 
 .aside-post {
     max-width: 378px; 
-    height: 337px;
+    height: 347px;
     margin-bottom: 16px;
     position: relative;
 }
@@ -721,6 +725,17 @@ footer .sections-container {
     .sections-container {
         display: flex;
         flex-direction: column;
+    }
+
+    .big-box {
+        max-width: 230px;
+    }
+}
+
+@media only screen and (max-width: 644px) {
+
+    .big-box, .box {
+        max-width: 250px;
     }
 }
 

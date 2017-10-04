@@ -56,34 +56,34 @@
                 </div>
                 <div class="comments-container">
                     {{#each post.comments}}
-                        <div class="comment">
-                            <div class="comment-data">
-                                <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
-                                <div class="comment-details">
-                                    <h2 class="comment-author">{{this.author}}</h2>
-                                    <p class="comment-content">{{this.content}}</p>
-                                    <button class="reply-button">REPLY</button>
+                    <div class="comment">
+                        <div class="comment-data">
+                            <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
+                            <div class="comment-details">
+                                <h2 class="comment-author">{{this.author}}</h2>
+                                <p class="comment-content">{{this.content}}</p>
+                                <button class="reply-button">REPLY</button>
+                            </div>
+                        </div>
+                        {{#if this.subComments.length}}
+                        <div class="subcomments">
+                            {{#each this.subComments}}
+                            <div class="subcomment">
+                                <div class="comment-data">
+                                    <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
+                                    <div class="comment-details">
+                                        <h2 class="comment-author">{{this.author}}</h2>
+                                        <p class="comment-content">{{this.content}}</p>
+                                        <button class="reply-button">REPLY</button>
+                                    </div>
                                 </div>
                             </div>
-                            {{#if this.subComments.length}}
-                                <div class="subcomments">
-                                    {{#each this.subComments}}
-                                        <div class="subcomment">
-                                            <div class="comment-data">
-                                                <img src="http://via.placeholder.com/100x100" alt="" class="comment-img">
-                                                <div class="comment-details">
-                                                    <h2 class="comment-author">{{this.author}}</h2>
-                                                    <p class="comment-content">{{this.content}}</p>
-                                                    <button class="reply-button">REPLY</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {{/each}}
-                                </div>
-                            {{/if}}
-                            <br>
-                            <br>
+                            {{/each}}
                         </div>
+                        {{/if}}
+                        <br>
+                        <br>
+                    </div>
                     {{/each}}
                 </div>
                 <form action="/posts/{{post.id}}/comments/-2" class="comment-form" method="POST">
@@ -104,7 +104,7 @@
                 <div class="aside-post aside-box">
                     <ul class="nav-ul">
                         <li>
-                            <h2 class="aside-title">Recent</h2>
+                            <h2 class="aside-title selected-aside-post">Recent</h2>
                         </li>
                         <li>
                             <h2 class="aside-title">Popular</h2>
@@ -114,51 +114,52 @@
                         </li>
                     </ul>
                     <div class="aside-content">
-                        <div class="content">
-                            <img src="./images/share-facebook.png" alt="">
-                            <div class="content-details">
-                                <h3 class="content-title">asdasd</h3>
-                                <p class="content-date">asdasdas</p>
+                        <div class="">
+                            {{#each asidePosts}}
+                            <div class="content">
+                                <img src="{{this.imageUrl}}" alt="{{this.title}}">
+                                <div class="content-details">
+                                    <h3 class="content-title">{{this.title}}</h3>
+                                    <p class="content-date">{{this.author}}</p>
+                                </div>
                             </div>
+                            {{/each}}
                         </div>
-                        <div class="content">
-                            <img src="./images/share-facebook.png" alt="">
-                            <div class="content-details">
-                                <h3 class="content-title">asdasd</h3>
-                                <p class="content-date">asdasdas</p>
+                        <div class="hidden">
+                            {{#each latestPosts}}
+                            <div class="content">
+                                <img src="{{this.imageUrl}}" alt="{{this.title}}">
+                                <div class="content-details">
+                                    <h3 class="content-title">{{this.title}}</h3>
+                                    <p class="content-date">{{this.author}}</p>
+                                </div>
                             </div>
+                            {{/each}}
                         </div>
-                        <div class="content">
-                            <img src="./images/share-facebook.png" alt="">
-                            <div class="content-details">
-                                <h3 class="content-title">asdasd</h3>
-                                <p class="content-date">asdasdas</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <img src="./images/share-facebook.png" alt="">
-                            <div class="content-details">
-                                <h3 class="content-title">asdasd</h3>
-                                <p class="content-date">asdasdas</p>
+                        <div class="hidden">
+                            <div class="content">
+                                <img src="{{randomPost.imageUrl}}" alt="{{randomPost.title}}">
+                                <div class="content-details">
+                                    <h3 class="content-title">{{randomPost.title}}</h3>
+                                    <p class="content-date">{{randomPost.author}}</p>
+                                </div>
                             </div>
                         </div>
                         <div class="box-bottom-border"></div>
                     </div>
                 </div>
                 <div class="aside-widget aside-box">
-                    <h2 class="aside-title">Custom text widget</h2>
+                    <h2 class="aside-title">New posts</h2>
                     <ul>
-                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
-                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
-                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
-                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
-                        <li><img src="./images/li-link.png" alt="" class="li-link">aasdas</li>
+                        {{#each asidePosts}}
+                            <li><img src="./images/li-link.png" alt="" class="li-link"><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
+                        {{/each}}
                     </ul>
                     <div class="box-bottom-border"></div>
                 </div>
                 <div class="aside-widget aside-box">
-                    <h2 class="aside-title">Custom text widget</h2>
-                    <p class="text-content">Pesho gosho Toshooo Peshoo</p>
+                    <h2 class="aside-title">Random</h2>
+                    <p class="text-content">{{randomPost.content}}</p>
                     <div class="box-bottom-border"></div>
                 </div>
             </aside>
