@@ -7,7 +7,14 @@
                 {{else}}
                 <div class="box">
                 {{/ifThird}}
+                    <div class="box-img">
+                        <img src="{{this.imageUrl}}" alt="">
+                    </div>
                     <p class="box-category">{{this.category}}</p>
+                    <div class="box-date">
+                        <p>{{this.date.month}}</p>
+                        <p>{{this.date.day}}</p>
+                    </div>
                     <h2 class="box-title"><a href="#/posts/{{this.id}}">{{this.title}}</a></h2>
                     <p class="box-author">Posted by {{this.author}}</p>
                     <p class="box-content">{{this.content}}</p>

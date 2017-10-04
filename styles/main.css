@@ -8,18 +8,25 @@
     src: url('../fonts/DroidSans-Regular.ttf') format("truetype");
 }
 
+html {
+    position: absolute;
+    min-height: 100%;
+}
+
 html, body {
+    width: 100%;
     margin: 0;
     padding: 0;
 }
 
 body {
-    height: 100vh;
+    /*height: 100vh;*/
     /* background-image: url('../images/background.png'); */
     /* background-size: cover; */
      background: repeating-linear-gradient(to right, #0e4a4b 0%, #116769 21%, #116a6e 50%, #116769 79%, #0e4a4b 100%);
     font-family: LeagueGothic;
     overflow-x: hidden;
+    margin: 0 0 415px;
 }
 
 .clear-float {
@@ -105,12 +112,13 @@ nav .search-img {
 
 main {
     margin-top: 60px;
+    margin-bottom: 500px; /* trial */
 }
 
 .box {
+    position: relative;
     margin-left: 26px;
     margin-bottom: 25px;
-    position: relative;
     max-width: 230px;
     overflow: hidden;
     height: 360px;
@@ -136,6 +144,39 @@ main {
     text-transform: uppercase;
     background: #7e426d;
     color: #ffffff;
+}
+
+.box-img {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    left: 3px;
+    height: 180px;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+.box-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.box-date {
+    position: absolute;
+    right: 5px;
+    top: 46px;
+    font-size: 48px;
+    color: #ffffff;
+    -webkit-text-stroke: #000000;
+}
+
+.box-date p {
+    position: absolute;
+    right: 5px;
+    text-shadow: 1px 1px 5px #000000;
+}
+
+.box-date p:nth-of-type(2) {
+    margin-top: 48px;
 }
 
 .box-title {
@@ -579,9 +620,23 @@ aside .nav-ul li {
     font-family: DroidSans;
 }
 
-footer {
+/*footer {
     border-top: 1px solid #317476;
     margin-top: 51px;
+    height: 415px;
+    background: repeating-linear-gradient(to right, #0c464a 0%, #0f5b5f 21%, #0f5d60 50%, #0f5b5f 79%, #0c464a 100%);
+}*/
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow:hidden;
+
+    border-top: 1px solid #317476;
+    margin-top: 510px;
     height: 415px;
     background: repeating-linear-gradient(to right, #0c464a 0%, #0f5b5f 21%, #0f5d60 50%, #0f5b5f 79%, #0c464a 100%);
 }
@@ -629,6 +684,44 @@ footer ul li img {
 }
 
 footer .sections-container {
+}
+
+
+/* Media queries */
+
+@media only screen and (max-width: 1465px) {
+    footer {
+        height: 830px;
+    }
+    
+    body {
+        margin: 0 0 830px;
+    }
+}
+
+@media only screen and (min-width: 660px) and (max-width: 791px) {
+    .footer-group {
+        margin-left: -65px;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    footer {
+        height: 1460px;
+    }
+
+    .footer-group {
+        margin-left: -80px;
+    }
+    
+    body {
+        margin: 0 0 1460px;
+    }
+
+    .sections-container {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 

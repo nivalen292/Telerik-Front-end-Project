@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row sections-container">
+        <div class="col-xs-3 footer-group">
+            <section class="footer-section">
+                <p class="section-title i-bg-yellow">Recent posts</p>
+                <div class="section-content">
+                    <ul>
+                        {{#each latestPosts}}
+                            <li><img src="./images/pagination-right.png" alt=""><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="col-xs-3 footer-group">
+            <section class="footer-section">
+                <p class="section-title i-bg-yellow">Latest post</p>
+                <div class="section-content">
+                    <p>{{latestPost.content}}</p>
+                </div>
+            </section>
+        </div>
+        <div class="col-xs-3 footer-group">
+            <section class="footer-section">
+                <p class="section-title i-bg-yellow">Recent comments</p>
+                <div class="section-content">
+                    <ul>
+                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
+                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
+                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
+                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
+                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
+                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
+                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="col-xs-3 footer-group">
+            <section class="footer-section">
+                <p class="section-title i-bg-yellow">Archives</p>
+                <div class="section-content">
+                    <ul>
+                        {{#each latestPosts}}
+                            <li><img src="./images/pagination-right.png" alt=""><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
