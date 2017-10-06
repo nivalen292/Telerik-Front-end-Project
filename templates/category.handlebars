@@ -1,14 +1,13 @@
 <div class="container-fluid">
-    <div class="row boxes-container posts-container">
-        <div class="row">
-            <div class="col-9">
+    <div class="boxes-container posts-container">
+        <div class="pull-left">
             {{#each categoryPosts}}
-                <div class="col-xs-2">
-                    {{#ifThird @index}}
-                    <div class="big-box">
+            <div class="category-boxes">
+                {{#ifThird @index}}
+                <div class="big-box">
                     {{else}}
                     <div class="box">
-                    {{/ifThird}}
+                        {{/ifThird}}
                         <div class="box-img">
                             <img src="{{this.imageUrl}}" alt="">
                         </div>
@@ -23,23 +22,43 @@
                         <div class="box-bottom-border"></div>
                     </div>
                 </div>
-            {{/each}}
+                {{/each}}
+            </div>
+        </div>
+        <div class="pull-right">
+            <aside>
+                <div class="aside-widget aside-box">
+                    <h2 class="aside-title">Recent posts</h2>
+                    <ul>
+                        {{#each asidePosts}}
+                        <li><img src="./images/li-link.png" alt="" class="li-link"><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
+                        {{/each}}
+                    </ul>
+                    <div class="box-bottom-border"></div>
+                </div>
+                <div class="aside-widget aside-box">
+                    <h2 class="aside-title">Popular comments</h2>
+                    <ul>
+                        {{#each asidePosts}}
+                        <li><img src="./images/li-link.png" alt="" class="li-link"><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
+                        {{/each}}
+                    </ul>
+                    <div class="box-bottom-border"></div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row boxes-container">
+            <div class="col-1">
+                <img src="./images/pagination-left.png" alt="" class="page-img prev-page-link">
+            </div>
+            <div class="col-10 text-center">
+                {{#each pages}}
+                <span class="i-page-link"><a href="#/?page={{this}}">{{this}}</a></span> {{/each}}
+            </div>
+            <div class="col-1">
+                <img src="./images/pagination-right.png" alt="" class="page-img next-page-link">
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid">
-    <div class="row boxes-container">
-        <div class="col-1">
-            <img src="./images/pagination-left.png" alt="" class="page-img prev-page-link">
-        </div>
-        <div class="col-10 text-center">
-            {{#each pages}}
-                <span class="i-page-link"><a href="#/?page={{this}}">{{this}}</a></span>
-            {{/each}}
-        </div>
-        <div class="col-1">
-            <img src="./images/pagination-right.png" alt="" class="page-img next-page-link">
-        </div>
-    </div>
-</div>

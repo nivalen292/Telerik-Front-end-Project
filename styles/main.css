@@ -9,7 +9,7 @@
 }
 
 html {
-    position: absolute;
+    position: relative;
     min-height: 100%;
 }
 
@@ -84,7 +84,6 @@ nav ul li:last-of-type {
     position: absolute;
     right: 83px;
     font-style: italic;
-    /*margin-left: 300px;*/
 }
 
 nav input[type="text"] {
@@ -690,8 +689,50 @@ footer ul li img {
 footer .sections-container {
 }
 
+.category-boxes {
+    display: flex;
+    flex-direction: row;
+}
+
 
 /* Media queries */
+@media only screen and (max-width: 1581px) {
+    .current-box {
+        max-width: 100%;
+        margin: 0;
+    }
+    .current-box-right {
+        max-width: 50%;
+    }
+    .current-box-comments {
+        margin: 0;
+        margin-top: 10px;
+        max-width: 100%;
+        width: 100%;
+    }
+    aside {
+        display: flex;
+        flex-direction: column;
+        flex-flow: wrap;
+        margin-top: 10px;
+    }
+    aside .nav-ul {
+        max-width: 100%;
+        width: 100%;
+    }
+    .aside-box {
+        width: 100%;
+        max-width: 100%;
+    }
+    .aside-post {
+        max-width: 100%;
+        width: 100%;
+    }
+    .aside-post:first-of-type {
+        max-width: 100%;
+        width: 100%;
+    }
+}
 
 @media only screen and (max-width: 1465px) {
     footer {
@@ -734,8 +775,55 @@ footer .sections-container {
 
 @media only screen and (max-width: 644px) {
 
-    .big-box, .box {
-        max-width: 250px;
+    nav ul {
+    }
+    nav ul li:last-of-type {
+        position: absolute;
+        top: 40px;
+        width: 375px;
+        left: 35px;
+        right: 0;
+    }
+    nav input[type="text"] {
+        width: 100%;
+    }
+    .box, .big-box {
+        max-width: 350px;
+    }
+}
+
+@media only screen and (max-width: 474px) {
+    .box, .big-box {
+        max-width: 90%;
+    }
+    #logo {
+        width: 100%;
+    }
+    .hbox {
+        margin-left: 0;
+    }
+    nav {
+        margin-left: -65px;
+    }
+    nav ul li:last-of-type {
+        position: absolute;
+        top: 40px;
+        width: 90%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    nav input[type="text"] {
+        width: 100%;
+    }
+    main {
+        margin-left: -75px;
+    }
+    .current-box, .current-box-comments, aside {
+        margin-left: 75px;
+    }
+    .footer-group {
+        margin-left: -175px;
     }
 }
 

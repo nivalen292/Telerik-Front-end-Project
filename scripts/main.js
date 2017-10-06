@@ -120,8 +120,6 @@ $(document).ready(() => {
                     return getRequest('http://localhost:3000/posts/' + id);
                 })
                 .then((post) => {
-            console.log(post)
-                    
                     const asidePosts = latestPosts.slice(0, 4);
                     const compiledTemplate = Handlebars.compile(rawTemplate);
                     const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)];
@@ -139,8 +137,10 @@ $(document).ready(() => {
         router.get('#/categories/:category', (data) => {
             const page = +data.params.page;
             const category = data.params.category;
+            let rawTemplate;
+            let latestPosts;
             if (!page) {
-                data.redirect('#/posts/' + category + '?page=1');
+                data.redirect('#/categories/' + category + '?page=1');
             }
             else {
                 getRequest('http://localhost:3000/posts')
@@ -166,7 +166,7 @@ $(document).ready(() => {
                     .then((categoryPostsObj) => {
                         const asidePosts = latestPosts.slice(0, 4);
                         const compiledTemplate = Handlebars.compile(rawTemplate);
-                        const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)]
+                        const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)];
                         $('main').html(compiledTemplate({
                             asidePosts: asidePosts,
                             latestPosts: latestPosts,
