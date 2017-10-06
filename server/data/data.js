@@ -27,6 +27,24 @@ const init = (db) => {
             })
     };
 
+    const getPostByCategory = (category, page) => {
+        return db.collection('thestyle-posts')
+            .find({ 'category': category })
+            .toArray()
+            .then((posts) => {
+                const postsLen = posts.length;
+                const POSTS_PER_PAGE = 11;
+                if (page) {
+                    posts = posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+                }
+                const result = {
+                    posts: posts,
+                    maxPage: Math.ceil(postsLen / POSTS_PER_PAGE)
+                };
+                return Promise.resolve(result);
+            })
+    };
+
     const postComment = (postId, commentIndex, comment) => {
         return getPostById(postId)
             .then((post) => {
@@ -65,7 +83,8 @@ const init = (db) => {
     const data = {
         getPosts,
         getPostById,
-        postComment
+        postComment,
+        getPostByCategory
     };
 
     return Promise.resolve(data);

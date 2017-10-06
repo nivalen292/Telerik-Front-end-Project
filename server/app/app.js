@@ -28,12 +28,21 @@ const init = (data) => {
             })
     });
 
+    app.get('/categories/:category', (request, response) => {
+        const page = +request.query.page;
+        const category = request.params.category;
+        return data.getPostByCategory(category, page)
+            .then((posts) => {
+                return response.json(posts);
+            });
+    });
+
     app.get('/posts/:id', (request, response) => {
         const id = +request.params.id;
         return data.getPostById(id)
             .then((post) => {
                 return response.json(post);
-            })
+            });
     });
 
     app.get('/templates/:name', (request, response) => {

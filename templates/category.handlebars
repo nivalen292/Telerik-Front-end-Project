@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row boxes-container posts-container">
+        <div class="row">
+            <div class="col-9">
+            {{#each categoryPosts}}
+                <div class="col-xs-2">
+                    {{#ifThird @index}}
+                    <div class="big-box">
+                    {{else}}
+                    <div class="box">
+                    {{/ifThird}}
+                        <div class="box-img">
+                            <img src="{{this.imageUrl}}" alt="">
+                        </div>
+                        <p class="box-category">{{this.category}}</p>
+                        <div class="box-date">
+                            <p>{{this.date.month}}</p>
+                            <p>{{this.date.day}}</p>
+                        </div>
+                        <h2 class="box-title"><a href="#/posts/{{this.id}}">{{this.title}}</a></h2>
+                        <p class="box-author">Posted by {{this.author}}</p>
+                        <p class="box-content">{{this.content}}</p>
+                        <div class="box-bottom-border"></div>
+                    </div>
+                </div>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row boxes-container">
+        <div class="col-1">
+            <img src="./images/pagination-left.png" alt="" class="page-img prev-page-link">
+        </div>
+        <div class="col-10 text-center">
+            {{#each pages}}
+                <span class="i-page-link"><a href="#/?page={{this}}">{{this}}</a></span>
+            {{/each}}
+        </div>
+        <div class="col-1">
+            <img src="./images/pagination-right.png" alt="" class="page-img next-page-link">
+        </div>
+    </div>
+</div>

@@ -33,7 +33,10 @@ $(document).ready(() => {
         const index = $ul.children('li').index($li);
 
         if (!$this.hasClass('selected-aside-post')) {
-            $ul.children('.selected-aside-post').removeClass('selected-aside-post');
+            $ul.find('.selected-aside-post').removeClass('selected-aside-post');
+            $this.addClass('selected-aside-post');
+            $ul.next().children().addClass('hidden');
+            $ul.next().children().eq(index).removeClass('hidden');
         }
     });
 
@@ -91,17 +94,6 @@ $(document).ready(() => {
             }
         });
 
-        // Categories
-        router.get('#/posts', (data) => {
-            const page = +data.params.page;
-            if (!page) {
-                data.redirect('#/posts?page=1');
-            }
-            else {
-
-            }
-        });
-
         // Selected post
         router.get('#/posts/:id', (data) => {
             const id = +data.params.id;
@@ -128,9 +120,11 @@ $(document).ready(() => {
                     return getRequest('http://localhost:3000/posts/' + id);
                 })
                 .then((post) => {
+            console.log(post)
+                    
                     const asidePosts = latestPosts.slice(0, 4);
                     const compiledTemplate = Handlebars.compile(rawTemplate);
-                    const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)]
+                    const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)];
                     $('main').html(compiledTemplate({
                         asidePosts: asidePosts,
                         latestPosts: latestPosts,
@@ -140,6 +134,50 @@ $(document).ready(() => {
                     }));
                 });
         });
+
+        // Categories
+        router.get('#/categories/:category', (data) => {
+            const page = +data.params.page;
+            const category = data.params.category;
+            if (!page) {
+                data.redirect('#/posts/' + category + '?page=1');
+            }
+            else {
+                getRequest('http://localhost:3000/posts')
+                    .then((postsObj) => {
+                        latestPosts = getLatest(postsObj.posts);
+                        return Promise.resolve(latestPosts);
+                    })
+                    .then((latestPosts) => {
+                        return getTemplate('footer')
+                    })
+                    .then((footerTemplate) => {
+                        const compiledTemplate = Handlebars.compile(footerTemplate);
+                        $('footer').html(compiledTemplate({
+                            latestPosts: latestPosts,
+                            latestPost: latestPosts[0]
+                        }));
+                    });
+                getTemplate('category')
+                    .then((template) => {
+                        rawTemplate = template;
+                        return getRequest('http://localhost:3000/categories/' + category);
+                    })
+                    .then((categoryPostsObj) => {
+                        const asidePosts = latestPosts.slice(0, 4);
+                        const compiledTemplate = Handlebars.compile(rawTemplate);
+                        const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)]
+                        $('main').html(compiledTemplate({
+                            asidePosts: asidePosts,
+                            latestPosts: latestPosts,
+                            latestPost: latestPosts[0],
+                            categoryPosts: categoryPostsObj.posts,
+                            randomPost: randomPost
+                        }));
+                    });
+            }
+        });
+
 
         // 404
         router.notFound = () => {
