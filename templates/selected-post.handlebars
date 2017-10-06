@@ -6,7 +6,7 @@
         <div class="">
             <div class="current-box">
                 <div class="box-top-border"></div>
-                <div class="row">
+                <div class="row current-box-children">
                     <div class="col-3 current-box-left">
                         <div class="current-box-image i-push-left">
                             <img src="{{post.imageUrl}}" alt="">
@@ -147,15 +147,6 @@
                         </div>
                         <div class="box-bottom-border"></div>
                     </div>
-                </div>
-                <div class="aside-widget aside-box">
-                    <h2 class="aside-title">Recent posts</h2>
-                    <ul>
-                        {{#each asidePosts}}
-                            <li><img src="./images/li-link.png" alt="" class="li-link"><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
-                        {{/each}}
-                    </ul>
-                    <div class="box-bottom-border"></div>
                 </div>
                 <div class="aside-widget aside-box">
                     <h2 class="aside-title">Recent posts</h2>
