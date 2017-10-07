@@ -25,12 +25,12 @@ const postComment = (ev) => {
         content: $('#form-message').val()
     }
 
-    postRequest('http://localhost:3000/posts/' + postId + '/comments/' + window.sessionStorage.getItem('commentIndex'), data)
+    postRequest('https://news-project.herokuapp.com/posts/' + postId + '/comments/' + window.sessionStorage.getItem('commentIndex'), data)
         .then(() => {
             return getTemplate('selected-post')
                 .then((template) => {
                     rawTemplate = template;
-                    return getRequest('http://localhost:3000/posts/' + postId);
+                    return getRequest('https://news-project.herokuapp.com/posts/' + postId);
                 })
                 .then((post) => {
                     const compiledTemplate = Handlebars.compile(rawTemplate);

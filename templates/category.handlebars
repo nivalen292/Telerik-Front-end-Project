@@ -1,6 +1,6 @@
 <div class="container-fluid">
-    <div class="boxes-container posts-container">
-        <div class="pull-left">
+    <div class="boxes-container category-posts-container">
+        <div class="row">
             {{#each categoryPosts}}
             <div class="category-boxes">
                 {{#ifThird @index}}
@@ -24,9 +24,7 @@
                 </div>
                 {{/each}}
             </div>
-        </div>
-        <div class="pull-right">
-            <aside>
+            <aside class="category-aside">
                 <div class="aside-widget aside-box">
                     <h2 class="aside-title">Recent posts</h2>
                     <ul>

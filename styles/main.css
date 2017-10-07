@@ -686,12 +686,20 @@ footer ul li img {
     margin-right: 11px;
 }
 
-footer .sections-container {
-}
-
 .category-boxes {
     display: flex;
     flex-direction: row;
+}
+
+.category-posts-container {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 25%;
+}
+
+.category-aside {
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -731,6 +739,8 @@ footer .sections-container {
     .aside-post:first-of-type {
         max-width: 100%;
         width: 100%;
+    }
+    .category-aside {
     }
 }
 
