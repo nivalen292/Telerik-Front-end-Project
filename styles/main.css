@@ -20,10 +20,7 @@ html, body {
 }
 
 body {
-    /*height: 100vh;*/
-    /* background-image: url('../images/background.png'); */
-    /* background-size: cover; */
-     background: repeating-linear-gradient(to right, #0e4a4b 0%, #116769 21%, #116a6e 50%, #116769 79%, #0e4a4b 100%);
+    background: repeating-linear-gradient(to right, #0e4a4b 0%, #116769 21%, #116a6e 50%, #116769 79%, #0e4a4b 100%);
     font-family: LeagueGothic;
     overflow-x: hidden;
     margin: 0 0 415px;
@@ -439,7 +436,6 @@ main {
     margin-left: 50px;
 }
 
-
 .comment .comment-img, .subcomment .comment-img {
     border: 4px solid #efefef;
     width: 64px;
@@ -686,18 +682,33 @@ footer ul li img {
     margin-right: 11px;
 }
 
-.category-boxes {
-    display: flex;
-    flex-direction: row;
+.category-posts-container > .row {
+    max-width: 100%;
+    width: 100%;
 }
 
 .category-posts-container {
     display: flex;
     flex-direction: row;
-    flex-basis: 25%;
+}
+
+.category-boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    padding: 0;
+    margin: 0;
+}
+
+.category-boxes .box, .category-boxes .big-box {
+    width: 230px;
 }
 
 .category-aside {
+    position: absolute;
+    right: 83px;
+    top: 350px;
     display: flex;
     flex-direction: column;
 }
@@ -740,7 +751,11 @@ footer ul li img {
         max-width: 100%;
         width: 100%;
     }
-    .category-aside {
+    .category-posts-container {
+        flex-direction: column;
+    }
+    .category-boxes {
+        width: 60%;
     }
 }
 
@@ -751,6 +766,20 @@ footer ul li img {
     
     body {
         margin: 0 0 830px;
+    }
+}
+
+@media only screen and (max-width: 962px) {
+    .category-aside {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+    .category-posts-container {
+        flex-direction: column;
+    }
+    .category-boxes {
+        width: 100%;
     }
 }
 
@@ -810,6 +839,13 @@ footer ul li img {
     }
 }
 
+@media only screen and (max-width: 620px) {
+    .category-boxes .box, .category-boxes .big-box {
+        max-width: 350px;
+        width: 350px;
+    }
+}
+
 @media only screen and (max-width: 474px) {
     .box, .big-box {
         max-width: 90%;
@@ -862,6 +898,20 @@ footer ul li img {
     }
     .footer-group {
         margin-left: -175px;
+    }
+
+    .category-boxes {
+        margin-left: 20px;
+    }
+
+    .category-boxes .box, .category-boxes .big-box {
+        max-width: 350px;
+        width: 90%;
+    }
+
+    .category-aside {
+        width: 90%;
+        margin-left: 30px;
     }
 }
 

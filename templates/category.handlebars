@@ -1,49 +1,52 @@
 <div class="container-fluid">
     <div class="boxes-container category-posts-container">
         <div class="row">
-            {{#each categoryPosts}}
-            <div class="category-boxes">
-                {{#ifThird @index}}
-                <div class="big-box">
-                    {{else}}
-                    <div class="box">
-                        {{/ifThird}}
-                        <div class="box-img">
-                            <img src="{{this.imageUrl}}" alt="">
+            <div class="">
+                <div class="category-boxes">
+                    {{#each categoryPosts}} {{#ifThird @index}}
+                    <div class="big-box">
+                        {{else}}
+                        <div class="box">
+                            {{/ifThird}}
+                            <div class="box-img">
+                                <img src="{{this.imageUrl}}" alt="">
+                            </div>
+                            <p class="box-category">{{this.category}}</p>
+                            <div class="box-date">
+                                <p>{{this.date.month}}</p>
+                                <p>{{this.date.day}}</p>
+                            </div>
+                            <h2 class="box-title"><a href="#/posts/{{this.id}}">{{this.title}}</a></h2>
+                            <p class="box-author">Posted by {{this.author}}</p>
+                            <p class="box-content">{{this.content}}</p>
+                            <div class="box-bottom-border"></div>
                         </div>
-                        <p class="box-category">{{this.category}}</p>
-                        <div class="box-date">
-                            <p>{{this.date.month}}</p>
-                            <p>{{this.date.day}}</p>
-                        </div>
-                        <h2 class="box-title"><a href="#/posts/{{this.id}}">{{this.title}}</a></h2>
-                        <p class="box-author">Posted by {{this.author}}</p>
-                        <p class="box-content">{{this.content}}</p>
-                        <div class="box-bottom-border"></div>
+                        {{/each}}
+                    </div>
+                    <div class="">
+                        <aside class="category-aside">
+                            <div class="aside-widget aside-box">
+                                <h2 class="aside-title">Recent posts</h2>
+                                <ul>
+                                    {{#each asidePosts}}
+                                    <li><img src="./images/li-link.png" alt="" class="li-link"><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
+                                    {{/each}}
+                                </ul>
+                                <div class="box-bottom-border"></div>
+                            </div>
+                            <div class="aside-widget aside-box">
+                                <h2 class="aside-title">Popular comments</h2>
+                                <ul>
+                                    {{#each asidePosts}}
+                                    <li><img src="./images/li-link.png" alt="" class="li-link"><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
+                                    {{/each}}
+                                </ul>
+                                <div class="box-bottom-border"></div>
+                            </div>
+                        </aside>
                     </div>
                 </div>
-                {{/each}}
             </div>
-            <aside class="category-aside">
-                <div class="aside-widget aside-box">
-                    <h2 class="aside-title">Recent posts</h2>
-                    <ul>
-                        {{#each asidePosts}}
-                        <li><img src="./images/li-link.png" alt="" class="li-link"><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
-                        {{/each}}
-                    </ul>
-                    <div class="box-bottom-border"></div>
-                </div>
-                <div class="aside-widget aside-box">
-                    <h2 class="aside-title">Popular comments</h2>
-                    <ul>
-                        {{#each asidePosts}}
-                        <li><img src="./images/li-link.png" alt="" class="li-link"><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
-                        {{/each}}
-                    </ul>
-                    <div class="box-bottom-border"></div>
-                </div>
-            </aside>
         </div>
     </div>
     <div class="container-fluid">
@@ -60,3 +63,4 @@
             </div>
         </div>
     </div>
+</div>

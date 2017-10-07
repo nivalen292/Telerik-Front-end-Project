@@ -64,7 +64,7 @@ $(document).ready(() => {
                 getTemplate('posts')
                     .then((template) => {
                         rawTemplate = template;
-                        return getRequest('https://news-project.herokuapp.com/posts?page=' + page);
+                        return getRequest('http://localhost:3000/posts?page=' + page);
                     })
                     .then((dataObj) => {
                         const compiledTemplate = Handlebars.compile(rawTemplate);
@@ -99,7 +99,7 @@ $(document).ready(() => {
             const id = +data.params.id;
             let rawTemplate;
             let latestPosts;
-            getRequest('https://news-project.herokuapp.com/posts')
+            getRequest('http://localhost:3000/posts')
                 .then((postsObj) => {
                     latestPosts = getLatest(postsObj.posts);
                     return Promise.resolve(latestPosts);
@@ -117,7 +117,7 @@ $(document).ready(() => {
             getTemplate('selected-post')
                 .then((template) => {
                     rawTemplate = template;
-                    return getRequest('https://news-project.herokuapp.com/posts/' + id);
+                    return getRequest('http://localhost:3000/posts/' + id);
                 })
                 .then((post) => {
                     const asidePosts = latestPosts.slice(0, 4);
@@ -143,7 +143,7 @@ $(document).ready(() => {
                 data.redirect('#/categories/' + category + '?page=1');
             }
             else {
-                getRequest('https://news-project.herokuapp.com/posts')
+                getRequest('http://localhost:3000/posts')
                     .then((postsObj) => {
                         latestPosts = getLatest(postsObj.posts);
                         return Promise.resolve(latestPosts);
@@ -161,7 +161,7 @@ $(document).ready(() => {
                 getTemplate('category')
                     .then((template) => {
                         rawTemplate = template;
-                        return getRequest('https://news-project.herokuapp.com/categories/' + category);
+                        return getRequest('http://localhost:3000/categories/' + category);
                     })
                     .then((categoryPostsObj) => {
                         const asidePosts = latestPosts.slice(0, 4);
