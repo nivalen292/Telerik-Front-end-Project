@@ -28,6 +28,20 @@ const init = (data) => {
             })
     });
 
+    app.get('/posts/length', (request, response) => {
+        return data.getPosts(0)
+            .then((posts) => {
+                return response.json(posts.posts.length);
+            })
+    });
+
+    app.get('/categories', (request, response) => {
+        return data.getCategories()
+            .then((categories) => {
+                return response.json(categories);
+            });
+    });
+
     app.get('/categories/:category', (request, response) => {
         const page = +request.query.page;
         const category = request.params.category;

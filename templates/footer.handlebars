@@ -25,13 +25,9 @@
                 <p class="section-title i-bg-yellow">Recent comments</p>
                 <div class="section-content">
                     <ul>
-                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
-                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
-                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
-                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
-                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
-                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
-                        <li><img src="./images/pagination-right.png" alt=""><span>Text asd asd asd asdasd as</span></li>
+                        {{#each latestPosts}}
+                            <li><img src="./images/pagination-right.png" alt=""><a href="#/posts/{{this.id}}">{{this.title}}</a></li>
+                        {{/each}}
                     </ul>
                 </div>
             </section>

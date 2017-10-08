@@ -40,6 +40,35 @@ $(document).ready(() => {
         }
     });
 
+    $(document).on('click', '#random-post-button', (ev) => {
+        return getRequest('http://localhost:3000/posts/length')
+            .then((len) => {
+                window.location.href = 'http://localhost:3000/#/posts/' + Math.floor((Math.random() * (len - 1)) + 1);
+            })
+    });
+
+    getRequest('http://localhost:3000/categories')
+        .then((categories) => {
+            let data = {};
+            data.categories = categories;
+            return Promise.resolve(data);
+        })
+        .then((data) => {
+            return getTemplate('nav')
+                .then((template) => {
+                    let obj = {};
+                    obj.template = template;
+                    obj.categories = data.categories;
+                    return Promise.resolve(obj);
+                });
+        })
+        .then((obj) => {
+            const compiledTemplate = Handlebars.compile(obj.template);
+            $('nav').html(compiledTemplate({
+                categories: obj.categories
+            }));
+        });
+
 });
 
 Handlebars.registerHelper('ifThird', function (index, options) {
@@ -64,7 +93,7 @@ $(document).ready(() => {
                 getTemplate('posts')
                     .then((template) => {
                         rawTemplate = template;
-                        return getRequest('https://news-project.herokuapp.com/posts?page=' + page);
+                        return getRequest('http://localhost:3000/posts?page=' + page);
                     })
                     .then((dataObj) => {
                         const compiledTemplate = Handlebars.compile(rawTemplate);
@@ -99,7 +128,7 @@ $(document).ready(() => {
             const id = +data.params.id;
             let rawTemplate;
             let latestPosts;
-            getRequest('https://news-project.herokuapp.com/posts')
+            getRequest('http://localhost:3000/posts')
                 .then((postsObj) => {
                     latestPosts = getLatest(postsObj.posts);
                     return Promise.resolve(latestPosts);
@@ -113,23 +142,26 @@ $(document).ready(() => {
                         latestPosts: latestPosts,
                         latestPost: latestPosts[0]
                     }));
-                });
-            getTemplate('selected-post')
-                .then((template) => {
-                    rawTemplate = template;
-                    return getRequest('https://news-project.herokuapp.com/posts/' + id);
+                    return Promise.resolve();
                 })
-                .then((post) => {
-                    const asidePosts = latestPosts.slice(0, 4);
-                    const compiledTemplate = Handlebars.compile(rawTemplate);
-                    const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)];
-                    $('main').html(compiledTemplate({
-                        asidePosts: asidePosts,
-                        latestPosts: latestPosts,
-                        latestPost: latestPosts[0],
-                        post: post,
-                        randomPost: randomPost
-                    }));
+                .then(() => {
+                    getTemplate('selected-post')
+                        .then((template) => {
+                            rawTemplate = template;
+                            return getRequest('http://localhost:3000/posts/' + id);
+                        })
+                        .then((post) => {
+                            const asidePosts = latestPosts.slice(0, 4);
+                            const compiledTemplate = Handlebars.compile(rawTemplate);
+                            const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)];
+                            $('main').html(compiledTemplate({
+                                asidePosts: asidePosts,
+                                latestPosts: latestPosts,
+                                latestPost: latestPosts[0],
+                                post: post,
+                                randomPost: randomPost
+                            }));
+                        });
                 });
         });
 
@@ -143,7 +175,7 @@ $(document).ready(() => {
                 data.redirect('#/categories/' + category + '?page=1');
             }
             else {
-                getRequest('https://news-project.herokuapp.com/posts')
+                getRequest('http://localhost:3000/posts')
                     .then((postsObj) => {
                         latestPosts = getLatest(postsObj.posts);
                         return Promise.resolve(latestPosts);
@@ -157,23 +189,34 @@ $(document).ready(() => {
                             latestPosts: latestPosts,
                             latestPost: latestPosts[0]
                         }));
-                    });
-                getTemplate('category')
-                    .then((template) => {
-                        rawTemplate = template;
-                        return getRequest('https://news-project.herokuapp.com/categories/' + category);
+                        return Promise.resolve();
                     })
-                    .then((categoryPostsObj) => {
-                        const asidePosts = latestPosts.slice(0, 4);
-                        const compiledTemplate = Handlebars.compile(rawTemplate);
-                        const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)];
-                        $('main').html(compiledTemplate({
-                            asidePosts: asidePosts,
-                            latestPosts: latestPosts,
-                            latestPost: latestPosts[0],
-                            categoryPosts: categoryPostsObj.posts,
-                            randomPost: randomPost
-                        }));
+                    .then(() => {
+                        getTemplate('category')
+                            .then((template) => {
+                                rawTemplate = template;
+                                return getRequest('http://localhost:3000/categories/' + category);
+                            })
+                            .then((categoryPostsObj) => {
+                                let pages = [];
+                                for (let i = 1, len = categoryPostsObj.maxPage; i <= len; i++) {
+                                    pages.push(i);
+                                }
+                                pages = pages.slice(0, 5);
+
+                                const asidePosts = latestPosts.slice(0, 4);
+                                const compiledTemplate = Handlebars.compile(rawTemplate);
+                                const randomPost = latestPosts[Math.floor((Math.random() * (latestPosts.length - 1)) + 0)];
+                                $('main').html(compiledTemplate({
+                                    asidePosts: asidePosts,
+                                    latestPosts: latestPosts,
+                                    latestPost: latestPosts[0],
+                                    categoryPosts: categoryPostsObj.posts,
+                                    randomPost: randomPost,
+                                    pages: pages,
+                                    category: category
+                                }));
+                            });
                     });
             }
         });

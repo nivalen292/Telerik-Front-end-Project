@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row boxes-container posts-container">
         {{#each posts}}
-            <div class="col-xs-2">
+            <article class="col-xs-2">
                 {{#ifThird @index}}
                 <div class="big-box">
                 {{else}}
@@ -20,7 +20,7 @@
                     <p class="box-content">{{this.content}}</p>
                     <div class="box-bottom-border"></div>
                 </div>
-            </div>
+            </article>
         {{/each}}
     </div>
 </div>

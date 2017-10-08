@@ -77,10 +77,14 @@ nav ul li {
     color: #ffffff;
 }
 
-nav ul li:last-of-type {
+nav .main-menu > li:last-of-type {
     position: absolute;
     right: 83px;
     font-style: italic;
+}
+
+nav .main-menu > li:hover {
+    color: #dcc08e;
 }
 
 nav input[type="text"] {
@@ -100,6 +104,72 @@ nav .search-img {
     top: 15px;
     width: 13px;
     height: 13px;
+}
+
+#categories-button {
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+
+nav .submenu {
+    position: absolute;
+    left: 53px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+nav .hidden-block {
+    display: none;
+}
+
+nav #categories-button:hover .hidden-block {
+    display: block;
+}
+
+nav #categories-button:hover {
+    background-color: #115d60;
+    color: #dcc08e;
+}
+
+nav #categories-button .submenu li:hover {
+    color: #dcc08e;
+}
+
+nav .submenu li {
+    padding: 0;
+    margin: 0;
+    background-color: #115d60;
+    width: 203px;
+    display: block;
+}
+
+
+nav .submenu li:first-of-type {
+    border-radius: 0 10px 0 0;
+}
+
+nav .submenu li:last-of-type {
+    border-radius: 0 0 10px 10px;
+}
+
+nav .submenu li a {
+    display: inline-block;
+    width: 80%
+}
+
+nav .submenu li img {
+    width: 11px;
+    height: 11px;
+    margin-left: 19px;
+    margin-right: 9px;
+    display: inline-block;
+}
+
+#random-post-button {
+    cursor: pointer;
 }
 
 .i-bold {
@@ -432,7 +502,7 @@ main {
 }
 
 .comment .subcomments {
-    margin-top: -50px;
+    margin-top: 2px;
     margin-left: 50px;
 }
 
@@ -445,6 +515,7 @@ main {
 .comment-details {
     position: relative;
     margin-left: 17px;
+    width: 100%;
 }
 
 .comment-author {
@@ -502,12 +573,15 @@ main {
 }
 
 .comment-form button {
+    /*position: absolute;
+    bottom: 0;
+    right: 0;*/
+    /*margin-left: 480px;*/
     width: 56px;
     height: 30px;
     color: #6e6e6e;
     font-size: 11px;
     font-family: DroidSans;
-    margin-left: 480px;
 }
 
 aside {
@@ -816,7 +890,7 @@ footer ul li img {
 
     nav ul {
     }
-    nav ul li:last-of-type {
+    nav .main-menu > li:last-of-type {
         position: absolute;
         top: 40px;
         width: 375px;
@@ -864,7 +938,7 @@ footer ul li img {
     }
     .current-box-right .box-content {
         height: fit-content;
-        width: 100%;
+        width: 75%;
         margin-bottom: 25px;
     }
     #logo {
@@ -874,12 +948,12 @@ footer ul li img {
         margin-left: 0;
     }
     .comment-form button, .comment-form input, .comment-form textarea {
-        width: 75%;
+        width: 60%;
     }
     nav {
-        margin-left: -65px;
+        margin-left: -32px;
     }
-    nav ul li:last-of-type {
+    nav .main-menu > li:last-of-type {
         position: absolute;
         top: 40px;
         width: 90%;
@@ -913,6 +987,32 @@ footer ul li img {
         width: 90%;
         margin-left: 30px;
     }
+
+    .comment button, .subcomment button {
+        right: 100px;
+    }
+
+    .comment-content {
+        width: 30%;
+        word-break: break-all;
+    }
 }
 
+
+@media only screen and (max-width: 315px) {
+    nav .main-menu {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav .main-menu li {
+    }
+
+    nav .main-menu > li:last-of-type {
+        top: 100px;
+        width: 80%;
+        left: 1.2em;
+    }
+}
 

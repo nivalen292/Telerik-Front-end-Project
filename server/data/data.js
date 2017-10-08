@@ -19,6 +19,20 @@ const init = (db) => {
             })
     };
 
+    const getCategories = () => {
+        return db.collection('thestyle-posts')
+            .find()
+            .toArray()
+            .then((posts) => {
+                let categoriesObj = {};
+                posts.forEach((p) => {
+                    categoriesObj[p.category] = true;
+                })
+                const categories = Object.keys(categoriesObj);
+                return Promise.resolve(categories);
+            })
+    };
+
     const getPostById = (id) => {
         return db.collection('thestyle-posts')
             .findOne({ 'id': id })
@@ -84,7 +98,8 @@ const init = (db) => {
         getPosts,
         getPostById,
         postComment,
-        getPostByCategory
+        getPostByCategory,
+        getCategories
     };
 
     return Promise.resolve(data);
