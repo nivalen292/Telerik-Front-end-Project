@@ -3,18 +3,18 @@
         <div class="row">
             <div class="col-12">
                 <ul class="main-menu">
-                    <li><a href="#/?page=1">Home</a></li>
+                    <li role="link"><a href="#/?page=1">Home</a></li>
                     <li id="categories-button">
                         <a>Categories</a>
                         <div class="hidden-block">
                             <ul class="submenu">
                                 {{#each categories}}
-                                <li><img src="./images/pagination-right.png" alt=""><a href="#/categories/{{this}}?page=1">{{this}}</a></li>
+                                <li role="link"><img src="./images/pagination-right.png" alt=""><a href="#/categories/{{this}}?page=1">{{this}}</a></li>
                                 {{/each}}
                             </ul>
                         </div>
                     </li>
-                    <li><a id="random-post-button">Random post</a></li>
+                    <li role="link"><a id="random-post-button">Random post</a></li>
                     <li><input type="text" placeholder="Search this website..."><a><img src="./images/search-icon.png" alt="" class="search-img"></a></li>
                 </ul>
             </div>

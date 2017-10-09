@@ -41,13 +41,13 @@ $(document).ready(() => {
     });
 
     $(document).on('click', '#random-post-button', (ev) => {
-        return getRequest('http://localhost:3000/posts/length')
+        return getRequest('https://news-project.herokuapp.com/posts/length')
             .then((len) => {
-                window.location.href = 'http://localhost:3000/#/posts/' + Math.floor((Math.random() * (len - 1)) + 1);
+                window.location.href = 'https://news-project.herokuapp.com/#/posts/' + Math.floor((Math.random() * (len - 1)) + 1);
             })
     });
 
-    getRequest('http://localhost:3000/categories')
+    getRequest('https://news-project.herokuapp.com/categories')
         .then((categories) => {
             let data = {};
             data.categories = categories;
@@ -93,7 +93,7 @@ $(document).ready(() => {
                 getTemplate('posts')
                     .then((template) => {
                         rawTemplate = template;
-                        return getRequest('http://localhost:3000/posts?page=' + page);
+                        return getRequest('https://news-project.herokuapp.com/posts?page=' + page);
                     })
                     .then((dataObj) => {
                         const compiledTemplate = Handlebars.compile(rawTemplate);
@@ -128,7 +128,7 @@ $(document).ready(() => {
             const id = +data.params.id;
             let rawTemplate;
             let latestPosts;
-            getRequest('http://localhost:3000/posts')
+            getRequest('https://news-project.herokuapp.com/posts')
                 .then((postsObj) => {
                     latestPosts = getLatest(postsObj.posts);
                     return Promise.resolve(latestPosts);
@@ -148,7 +148,7 @@ $(document).ready(() => {
                     getTemplate('selected-post')
                         .then((template) => {
                             rawTemplate = template;
-                            return getRequest('http://localhost:3000/posts/' + id);
+                            return getRequest('https://news-project.herokuapp.com/posts/' + id);
                         })
                         .then((post) => {
                             const asidePosts = latestPosts.slice(0, 4);
@@ -175,7 +175,7 @@ $(document).ready(() => {
                 data.redirect('#/categories/' + category + '?page=1');
             }
             else {
-                getRequest('http://localhost:3000/posts')
+                getRequest('https://news-project.herokuapp.com/posts')
                     .then((postsObj) => {
                         latestPosts = getLatest(postsObj.posts);
                         return Promise.resolve(latestPosts);
@@ -195,7 +195,7 @@ $(document).ready(() => {
                         getTemplate('category')
                             .then((template) => {
                                 rawTemplate = template;
-                                return getRequest('http://localhost:3000/categories/' + category);
+                                return getRequest('https://news-project.herokuapp.com/categories/' + category);
                             })
                             .then((categoryPostsObj) => {
                                 let pages = [];
