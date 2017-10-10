@@ -317,6 +317,10 @@ main {
     margin-left: 19px;
 }
 
+.i-page-link:hover {
+    color: #dcc08e;
+}
+
 .i-padding-reset {
     padding: 0;
 }
